@@ -1,0 +1,11 @@
+on:
+  push:
+    branches: [ "*" ]
+
+jobs:
+  workflow_1:
+    uses: ./.github/workflows/workflow1.yaml
+
+  workflow_2:
+    needs: workflow_1
+    uses: ./.github/workflows/workflow2.yaml
