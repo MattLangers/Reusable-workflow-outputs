@@ -19,7 +19,7 @@ jobs:
         run: > 
           $("here")
 
-          $(${{ needs.wf1job1.outputs.my_output }})
+          $("${{ needs.wf1job1.outputs.my_output }}_boo")
           
           $("be dragons")
       - name: work flow 2 output
