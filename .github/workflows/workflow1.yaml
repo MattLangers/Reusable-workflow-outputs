@@ -2,7 +2,7 @@ on:
   workflow_call:
     outputs:
       my_output:
-        value: ${{ jobs.wf1job1.outputs.my_output }}
+        value: ${{ jobs.wf1step1.outputs.my_output }}
 
 jobs:
   wf1job1:
@@ -11,10 +11,10 @@ jobs:
       my_output: ${{ steps.step1.outputs.my_output }}
     steps:
       - name: step 1
-        id: step1
+        id: wf1step1
         run: > 
           Write-Output "::set-output name=my_output::hello"
       - name: step 2
-        id: step2
+        id: wf1step2
         run: > 
-          $("${{ steps.step1.outputs.my_output}}")
+          echo ${{ steps.wf1step1.outputs.my_output}}

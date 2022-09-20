@@ -8,25 +8,20 @@ jobs:
   wf2job1:
     runs-on: windows-latest
     outputs:
-      my_output: ${{ steps.step1.outputs.my_output }}
+      my_output: ${{ steps.wf2step1.outputs.my_output }}
     steps:
       - name: step 1
-        id: step1
+        id: wf2step1
         run: > 
           Write-Output "::set-output name=my_output::'world'"
       - name: work flow 1 output
-        id: step2
+        id: wf2step2
         run: > 
-          $("here")
-
-          $("${{ needs.wf1job1.outputs.my_output }}_boo")
-          
-          $("be dragons")
+          echo ${{ needs.wf1job1.outputs.my_output }}
       - name: work flow 2 output
-        id: step3
+        id: wf2step3
         run: > 
-          $("here")
-          
-          $(${{ needs.wf2job1.outputs.my_output }})
-          
-          $("be dragons")
+          echo ${{ needs.wf2job1.outputs.my_output }}
+        id: wf2step4
+        run: > 
+          echo ${{ steps.wf2step1.outputs.my_output}}
