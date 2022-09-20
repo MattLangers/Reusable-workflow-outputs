@@ -19,7 +19,7 @@ jobs:
         run: > 
           $("here")
 
-          $({{ needs.jobs.wf1job1.outputs.my_output }})
+          $(${{ needs.jobs.wf1job1.outputs.my_output }})
           
           $("be dragons")
       - name: work flow 2 output
@@ -27,6 +27,6 @@ jobs:
         run: > 
           $("here")
           
-          $({{ needs.jobs.wf2job1.outputs.my_output }})
+          $(${{ needs.jobs.wf2job1.outputs.my_output }})
           
           $("be dragons")
