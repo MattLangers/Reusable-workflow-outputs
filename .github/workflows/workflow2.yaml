@@ -22,6 +22,6 @@ jobs:
         id: wf2step3
         run: > 
           echo ${{ needs.wf2job1.outputs.my_output }}
-        id: wf2step4
+      - id: wf2step4
         run: > 
           echo ${{ steps.wf2step1.outputs.my_output}}
