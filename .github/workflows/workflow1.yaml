@@ -13,4 +13,8 @@ jobs:
       - name: step 1
         id: step1
         run: > 
-          Write-Output "::set-output name=my_output::'hello'"
+          Write-Output "::set-output name=my_output::hello"
+      - name: step 2
+        id: step2
+        run: > 
+          $("${{ steps.step1.outputs.my_output}}")
