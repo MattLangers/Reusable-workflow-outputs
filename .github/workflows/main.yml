@@ -8,4 +8,9 @@ jobs:
 
   workflow_2:
     needs: workflow_1
-    uses: ./.github/workflows/workflow2.yaml
+    runs-on: windows-latest
+    steps:
+      - name: work flow 1 output
+        id: wf2step1
+        run: > 
+          $(${{ needs.workflow_1.outputs.myOutput }})

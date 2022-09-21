@@ -2,13 +2,13 @@ on:
   workflow_call:
     outputs:
       myOutput:
-        value: ${{ jobs.wf1step1.outputs.myOutput }}
+        value: ${{ jobs.wf1job1.outputs.myOutput }}
 
 jobs:
   wf1job1:
     runs-on: windows-latest
     outputs:
-      myOutput: ${{ steps.step1.outputs.myOutput }}
+      myOutput: ${{ steps.wf1step1.outputs.myOutput }}
     steps:
       - name: step 1
         id: wf1step1
