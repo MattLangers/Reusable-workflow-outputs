@@ -13,4 +13,10 @@ jobs:
       - name: work flow 1 output
         id: wf2step1
         run: > 
-          $(${{ needs.workflow_1.outputs.myOutput }})
+          echo ${{ needs.workflow_1.outputs.my_output }}
+
+  workflow_3:
+    needs: workflow_1
+    uses: ./.github/workflows/workflow3.yaml
+    with:
+      workflow_1_input: ${{ needs.workflow_1.outputs.my_output }}

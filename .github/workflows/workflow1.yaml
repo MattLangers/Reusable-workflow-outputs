@@ -1,20 +1,20 @@
 on:
   workflow_call:
     outputs:
-      myOutput:
-        value: ${{ jobs.wf1job1.outputs.myOutput }}
+      my_output:
+        value: ${{ jobs.job_1.outputs.my_output }}
 
 jobs:
-  wf1job1:
+  job_1:
     runs-on: windows-latest
     outputs:
-      myOutput: ${{ steps.wf1step1.outputs.myOutput }}
+      my_output: ${{ steps.step_1.outputs.my_output }}
     steps:
       - name: step 1
-        id: wf1step1
+        id: step_1
         run: > 
-          Write-Output "::set-output name=myOutput::hello"
+          Write-Output "::set-output name=my_output::hello"
       - name: step 2
-        id: wf1step2
+        id: step_2
         run: > 
-          echo ${{ steps.wf1step1.outputs.myOutput}}
+          echo ${{ steps.step_1.outputs.my_output}}

@@ -1,0 +1,15 @@
+on:
+  workflow_call:
+    inputs:
+      workflow_1_input:
+        required: false
+        type: string
+
+jobs:
+  job_1:
+    runs-on: windows-latest
+    steps:
+      - name: step 1
+        id: step_1
+        run: > 
+          echo "good ${{ inputs.workflow_1_input }}"
