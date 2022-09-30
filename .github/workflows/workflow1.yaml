@@ -17,13 +17,11 @@ jobs:
 
           temp='happy-plant-0sd33cd78303.2.azurestaticapps.net%0A'
 
-          temp=$(printf '%b' "${temp//%/\\x}")
+          temp="${temp//$'%0A'/''}" 
 
           temp="http://$temp"
-
-          echo $temp
-
-          echo "::set-output name=temp::$(${temp//$'%0A'/''}")"
+          
+          echo "::set-output name=temp::$($temp)"
       - name: step 2
         id: step_2
         run: > 
