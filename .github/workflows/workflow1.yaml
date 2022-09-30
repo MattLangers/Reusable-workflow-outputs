@@ -14,13 +14,14 @@ jobs:
         id: step_1
         run: > 
           echo "::set-output name=my_output::hello"
-      - name: step 2
-        id: step_2
-        run: > 
-          echo ${{ steps.step_1.outputs.my_output}}
 
           temp='happy-plant-0sd33cd78303.2.azurestaticapps.net'
 
           temp="http://$temp"
           
-          echo $temp
+          echo "::set-output name=temp::$($temp)"
+      - name: step 2
+        id: step_2
+        run: > 
+          echo ${{ steps.step_1.outputs.my_output}}
+          echo ${{ steps.step_1.outputs.temp}}
