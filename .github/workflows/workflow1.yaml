@@ -16,10 +16,14 @@ jobs:
           echo "::set-output name=my_output::hello"
 
           temp='happy-plant-0sd33cd78303.2.azurestaticapps.net%0A'
-          
-          temp="${temp/'%0A'/''}" 
+
+          temp="${temp/'%0A'/'me'}" 
+
+          echo temp
 
           temp="http://$temp"
+
+          echo $temp 
           
           echo "::set-output name=temp::$($temp)"
       - name: step 2
