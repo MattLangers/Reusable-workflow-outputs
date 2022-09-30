@@ -6,29 +6,18 @@ on:
 
 jobs:
   job_1:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     outputs:
       my_output: ${{ steps.step_1.outputs.my_output }}
     steps:
       - name: step 1
         id: step_1
         run: > 
-          echo "::set-output name=my_output::hello"
-
-          temp='happy-plant-0sd33cd78303.2.azurestaticapps.net%0A'
-
-          temp="${temp/'%0A'/''}" 
-
-          echo temp
-
-          temp="http://$temp"
-
-          echo $temp 
-          
-          echo "::set-output name=temp::$temp"
+          Write-Output "::set-output name=my_output::hello"
+          $temp="afternoon"
+          Write-Output "::set-output name=my_output_two::$($temp)"
       - name: step 2
         id: step_2
         run: > 
           echo ${{ steps.step_1.outputs.my_output}}
-          
-          echo ${{ steps.step_1.outputs.temp}}
+          echo ${{ steps.step_1.outputs.my_output_two}}
