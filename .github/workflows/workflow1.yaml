@@ -22,8 +22,8 @@ jobs:
           temp="http://$temp"
 
           echo $temp
-          
-          echo "::set-output name=temp::$($temp)"
+
+          echo "::set-output name=temp::$(${temp//$'%0A'/''}")"
       - name: step 2
         id: step_2
         run: > 
