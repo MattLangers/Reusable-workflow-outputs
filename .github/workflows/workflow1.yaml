@@ -18,3 +18,5 @@ jobs:
         id: step_2
         run: > 
           echo ${{ steps.step_1.outputs.my_output}}
+
+          echo format('hello {0}','${{ steps.step_1.outputs.my_output}}')
