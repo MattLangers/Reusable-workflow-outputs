@@ -15,7 +15,7 @@ jobs:
         run: > 
           echo "::set-output name=my_output::hello"
 
-          temp='happy-plant-0sd33cd78303.2.azurestaticapps.net%0A'
+          temp='happy-plant-0sd33cd78303.2.azurestaticapps.net%0A'|base64
 
           temp="http://$temp"
           
