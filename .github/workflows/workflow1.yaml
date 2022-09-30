@@ -25,7 +25,7 @@ jobs:
 
           echo $temp 
           
-          echo "::set-output name=temp::$($temp)"
+          echo "::set-output name=temp::$temp"
       - name: step 2
         id: step_2
         run: > 
