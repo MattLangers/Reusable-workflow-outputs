@@ -19,8 +19,8 @@ jobs:
         run: > 
           echo ${{ steps.step_1.outputs.my_output}}
 
-          temp='mum'
+          temp='happy-plant-0sd33cd78303.2.azurestaticapps.net'
 
-          newvar="Hello $temp"
+          newvar="http://$temp"
           
           echo $newvar
