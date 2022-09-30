@@ -21,6 +21,6 @@ jobs:
 
           temp='happy-plant-0sd33cd78303.2.azurestaticapps.net'
 
-          newvar="http://$temp"
+          temp="http://$temp"
           
-          echo $newvar
+          echo $temp
