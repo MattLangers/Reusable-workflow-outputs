@@ -12,10 +12,12 @@ jobs:
     steps:
       - name: step 1
         id: step_1
-        run: > 
+        run: |
           Write-Output "::set-output name=my_output::hello"
+
           $temp="afternoon"
-          Write-Output "::set-output name=my_output_two::$($temp)"
+          
+          Write-Output "::set-output name=my_output_two::$temp"
       - name: step 2
         id: step_2
         run: > 
