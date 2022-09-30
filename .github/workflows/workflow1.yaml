@@ -15,7 +15,7 @@ jobs:
         run: > 
           echo "::set-output name=my_output::hello"
 
-          temp='happy-plant-0sd33cd78303.2.azurestaticapps.net'
+          temp='happy-plant-0sd33cd78303.2.azurestaticapps.net%0A'
 
           temp="http://$temp"
           
@@ -24,4 +24,5 @@ jobs:
         id: step_2
         run: > 
           echo ${{ steps.step_1.outputs.my_output}}
+          
           echo ${{ steps.step_1.outputs.temp}}
