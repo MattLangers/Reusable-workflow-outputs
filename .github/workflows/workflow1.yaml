@@ -6,14 +6,14 @@ on:
 
 jobs:
   job_1:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     outputs:
       my_output: ${{ steps.step_1.outputs.my_output }}
     steps:
       - name: step 1
         id: step_1
         run: > 
-          Write-Output "::set-output name=my_output::hello"
+          echo "::set-output name=my_output::hello"
       - name: step 2
         id: step_2
         run: > 
